@@ -10,9 +10,12 @@ node('maven') {
   stage 'build'
     git branch: sourceRef, url: sourceUrl
     sh "${mvnCmd} clean install -DskipTests=true"
-  stage 'test'
-    sh "${mvnCmd} test"
+  /*stage 'test'
+    sh "${mvnCmd} test"*/
   stage 'deployInDev'
+    ls
+    ls target/
+    /*
     sh "rm -rf oc-build && mkdir -p oc-build/deployments"
     sh "cp target/openshift-tasks.war oc-build/deployments/ROOT.war"
     // clean up. keep the image stream
@@ -24,5 +27,5 @@ node('maven') {
     sh "oc start-build ${applicationName} --from-dir=oc-build --wait=true -n ${devProject}"
     // deploy image
     sh "oc new-app ${applicationName}:latest -n ${devProject}"
-    sh "oc expose svc/${applicationName} -n ${devProject}"
+    sh "oc expose svc/${applicationName} -n ${devProject}"*/
 }
