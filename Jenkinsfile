@@ -7,7 +7,7 @@ node('maven') {
   def devProject = "ocp-tasks"
   def applicationName = "jkf-tasks"
   // Jenkins war file
-  def WAR_FILE_URL = "https://jenkins-ocp-tasks.b9ad.pro-us-east-1.openshiftapps.com/job/bin-tasks/org.jboss.quickstarts.eap$jboss-tasks-rs/lastSuccessfulBuild/artifact/org.jboss.quickstarts.eap/jboss-tasks-rs/6.4.0-SNAPSHOT/jboss-tasks-rs-6.4.0-SNAPSHOT.war";
+  def WAR_FILE_URL = "https://jenkins-ocp-tasks.b9ad.pro-us-east-1.openshiftapps.com/job/bin-tasks/org.jboss.quickstarts.eap\$jboss-tasks-rs/3/artifact/org.jboss.quickstarts.eap/jboss-tasks-rs/6.4.0-SNAPSHOT/jboss-tasks-rs-6.4.0-SNAPSHOT.war";
   def WAR_FILE_USER = "james.r.duncan@nz.pwc.com";
   def WAR_FILE_PASSWORD = "ocpwc2017";
 
