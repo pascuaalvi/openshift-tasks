@@ -3,7 +3,7 @@ node('maven') {
   def mvnCmd = "mvn"
   // injection of environment variables is not done so set them here...
   def sourceRef = "master"
-  def sourceUrl = "https://github.com/jboss-openshift/openshift-quickstarts/tree/master/tomcat-websocket-chat.git"
+  def sourceUrl = "https://github.com/pascuaalvi/openshift-tasks"
   def devProject = "ocp-tasks"
   def applicationName = "jkf-tasks"
 
@@ -11,6 +11,10 @@ node('maven') {
     echo "Extract."
     git branch: sourceRef, url: sourceUrl
     sh "${mvnCmd} clean install -DskipTests=true"
+  stage 'test'
+    echo "Testing."
+    //sh "${mvnCmd} test"
+    echo "Testing Done."
   stage 'deployInDev'    
     sh "rm -rf oc-build && mkdir -p oc-build/deployments"
     sh "cp target/openshift-tasks.war oc-build/deployments/ROOT.war"
