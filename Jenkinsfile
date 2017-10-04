@@ -5,7 +5,7 @@ node('maven') {
   def sourceRef = "master"
   def sourceUrl = "https://github.com/pascuaalvi/tomcat-websocket-ex.git"
   def devProject = "ocp-tasks"
-  def applicationName = "jkf-tasks"
+  def applicationName = "websocket-chat"
 
   stage 'extract'
     echo "Extract."
@@ -13,7 +13,7 @@ node('maven') {
     sh "${mvnCmd} clean install -DskipTests=true"
   stage 'deployInDev'    
     sh "rm -rf oc-build && mkdir -p oc-build/deployments"
-    sh "cp target/openshift-tasks.war oc-build/deployments/ROOT.war"
+    sh "cp target/${applicationName}.war oc-build/deployments/ROOT.war"
     // clean up. keep the image stream
     sh "oc project ${devProject}"
     sh "oc delete bc,dc,svc,route -l application=${applicationName} -n ${devProject}"
