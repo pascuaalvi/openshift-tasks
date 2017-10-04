@@ -9,14 +9,14 @@ node('maven') {
 
   stage 'build'
     git branch: sourceRef, url: sourceUrl
-    sh "${mvnCmd} clean install -DskipTests=true"
+    //sh "${mvnCmd} clean install -DskipTests=true"
   stage 'test'
     echo "Testing."
     //sh "${mvnCmd} test"
     echo "Testing Done."
   stage 'deployInDev'
-    ls
-    // ls target    
+    sh "ls -ltr"  
+    sh "ls target"  
     // sh "rm -rf oc-build && mkdir -p oc-build/deployments"
     // sh "cp target/openshift-tasks.war oc-build/deployments/ROOT.war"
     // // clean up. keep the image stream
