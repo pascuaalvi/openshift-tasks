@@ -10,6 +10,7 @@ node('maven') {
   stage 'extract'
     echo "Extract."
     git branch: sourceRef, url: sourceUrl
+    sh "ls -ltr"
     sh "cd tomcat-websocket-chat"
     sh "${mvnCmd} clean install -DskipTests=true"
   stage 'deployInDev'    
