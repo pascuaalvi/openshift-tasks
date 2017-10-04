@@ -10,7 +10,7 @@ node('maven') {
   stage 'extract'
     echo "Extract."
     git branch: sourceRef, url: sourceUrl
-    sh "${mvnCmd} clean install" // -DskipTests=true
+    sh "${mvnCmd} clean install" -DskipTests=true
   stage 'test'
     echo "Testing."
     //sh "${mvnCmd} test"
