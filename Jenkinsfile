@@ -2,8 +2,8 @@ node('maven') {
   // define commands
   def mvnCmd = "mvn"
   // injection of environment variables is not done so set them here...
-  def sourceRef = "master/tomcat-websocket-chat"
-  def sourceUrl = "https://github.com/jboss-openshift/openshift-quickstarts.git"
+  def sourceRef = "master"
+  def sourceUrl = "https://github.com/pascuaalvi/tomcat-websocket-ex.git"
   def devProject = "ocp-tasks"
   def applicationName = "jkf-tasks"
 
