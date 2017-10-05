@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Template
 labels:
-  template: openshift-tasks
+  template: openshift-tasks-no-trigger
 metadata:
-  name: openshift-tasks
+  name: openshift-tasks-no-trigger
 objects:
 - apiVersion: v1
   kind: ImageStream
@@ -154,11 +154,11 @@ parameters:
 - description: The name for the application.
   name: APPLICATION_NAME
   required: true
-  value: tasks
+  value: no-trigger-websocket-chat
 - description: Git source URI for application
   name: SOURCE_URL
   required: true
-  value: https://github.com/pascuaalvi/openshift-tasks
+  value: https://github.com/pascuaalvi/tomcat-websocket-ex
 - description: Git branch/tag reference
   name: SOURCE_REF
   value: master
